@@ -1,4 +1,32 @@
+"use client";
+
+import { useState } from "react";
+
 export default function Home() {
+  const [form, setForm] = useState({
+    name: "",
+    business: "",
+    phone: "",
+    message: "",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const subject = encodeURIComponent("Free Google Audit Request - XcelRank");
+    const body = encodeURIComponent(
+      `Name: ${form.name}\nBusiness: ${form.business}\nPhone: ${form.phone}\n\nMessage:\n${form.message}`
+    );
+
+    window.location.href = `mailto:info@xcelrank.com?subject=${subject}&body=${body}`;
+  };
+
   return (
     <main
       style={{
@@ -57,6 +85,9 @@ export default function Home() {
             </a>
             <a href="#why-us" style={navLinkStyle}>
               Why Us
+            </a>
+            <a href="#audit" style={navLinkStyle}>
+              Free Audit
             </a>
             <a href="#contact" style={navLinkStyle}>
               Contact
@@ -125,8 +156,12 @@ export default function Home() {
               }}
             >
               If your business isn’t showing up properly on Google, you’re losing
-              customers every day. XcelRank helps you improve your visibility,
-              attract more local enquiries, and turn searches into real business.
+              customers every day.
+              <br />
+              <br />
+              XcelRank helps you improve your visibility, attract more local
+              enquiries, and turn searches into real business — without
+              overcomplicated strategies or wasted effort.
             </p>
 
             <div
@@ -174,7 +209,7 @@ export default function Home() {
             >
               <span>✔ More visibility</span>
               <span>✔ More local enquiries</span>
-              <span>✔ More customer action</span>
+              <span>✔ More customers choosing your business</span>
             </div>
           </div>
 
@@ -197,11 +232,11 @@ export default function Home() {
                   },
                   {
                     title: "Higher Local Visibility",
-                    text: "Show up in the right places when people search for the services you offer in your area.",
+                    text: "Show up where people are already searching for your services and stand out from local competitors.",
                   },
                   {
                     title: "Better Lead Conversion",
-                    text: "Turn traffic into calls, messages, and enquiries with stronger messaging and a cleaner customer journey.",
+                    text: "Turn traffic into real calls and enquiries with clearer messaging and a stronger customer journey.",
                   },
                 ].map((item) => (
                   <div
@@ -256,10 +291,13 @@ export default function Home() {
         >
           <div style={{ textAlign: "center", marginBottom: "28px" }}>
             <p style={sectionLabelStyle}>The Problem</p>
-            <h2 style={sectionTitleStyle}>Most Local Businesses Are Invisible on Google</h2>
+            <h2 style={sectionTitleStyle}>
+              Most Local Businesses Are Invisible on Google
+            </h2>
             <p style={sectionTextStyle}>
               If people can’t find your business, they can’t choose your
-              business. That means lost calls, lost enquiries, and lost customers.
+              business. That means lost calls, lost enquiries, and lost
+              customers.
             </p>
           </div>
 
@@ -271,10 +309,10 @@ export default function Home() {
             }}
           >
             {[
-              "Your competitors are showing up above you",
-              "Your Google profile isn’t fully optimised",
-              "You’re missing out on daily enquiries",
-              "Your online presence may not build enough trust",
+              "Competitors appearing above you",
+              "An under-optimised Google presence",
+              "Missed daily enquiries",
+              "Weak online trust",
             ].map((item) => (
               <div
                 key={item}
@@ -301,8 +339,8 @@ export default function Home() {
               lineHeight: 1.7,
             }}
           >
-            Every day your business isn’t properly visible on Google, you are
-            losing potential customers to your competitors.
+            Every day this continues, your competitors take the customers that
+            should be yours.
           </p>
         </div>
       </section>
@@ -317,11 +355,14 @@ export default function Home() {
       >
         <div style={{ textAlign: "center", marginBottom: "42px" }}>
           <p style={sectionLabelStyle}>How We Help You Grow</p>
-          <h2 style={sectionTitleStyle}>Services Designed to Get You Seen and Chosen</h2>
+          <h2 style={sectionTitleStyle}>
+            Focused Systems Designed to Get You Seen and Chosen
+          </h2>
           <p style={sectionTextStyle}>
-            We focus on the areas that actually matter: stronger visibility,
-            better trust, and more real enquiries from people already looking for
-            your services.
+            We don’t offer random services.
+            <br />
+            We focus on the key areas that directly impact your visibility,
+            trust, and ability to generate real enquiries.
           </p>
         </div>
 
@@ -336,17 +377,17 @@ export default function Home() {
             {
               icon: "📍",
               title: "Google Growth System",
-              text: "Make your business impossible to ignore on Google. We optimise your Google presence so your business appears stronger, ranks higher, and attracts more calls from real local customers.",
+              text: "Make your business impossible to ignore on Google. We strengthen your presence so your business appears more credible, ranks more effectively, and attracts more calls from real local customers.",
             },
             {
               icon: "📈",
               title: "Local Visibility Boost",
-              text: "Get found by customers in your area. We position your business where people are already searching, helping you appear more often and stand out from local competitors.",
+              text: "Get found by customers actively searching in your area. We position your business where it matters most, helping you appear more often and compete more effectively in local search.",
             },
             {
               icon: "🤝",
               title: "Lead Conversion Setup",
-              text: "Turn visitors into real enquiries. We improve your website and messaging so more people take action — calling, messaging, and choosing your business.",
+              text: "Turn visitors into real enquiries. We improve your messaging and structure so more people take action — calling, messaging, and choosing your business.",
             },
           ].map((service) => (
             <div
@@ -377,7 +418,9 @@ export default function Home() {
                 {service.icon}
               </div>
 
-              <h3 style={{ fontSize: "24px", margin: "0 0 14px" }}>{service.title}</h3>
+              <h3 style={{ fontSize: "24px", margin: "0 0 14px" }}>
+                {service.title}
+              </h3>
 
               <p style={{ color: "#d0d0d0", lineHeight: 1.8, margin: 0 }}>
                 {service.text}
@@ -406,9 +449,10 @@ export default function Home() {
             <p style={sectionLabelStyle}>How It Works</p>
             <h2 style={sectionTitleStyle}>A Clear Process Focused on Results</h2>
             <p style={sectionTextStyle}>
-              We keep things straightforward. First we find the gaps, then we
-              strengthen your presence, then we help turn that visibility into
-              more enquiries.
+              We keep things simple.
+              <br />
+              Identify the gaps, strengthen your presence, and turn visibility
+              into real enquiries.
             </p>
           </div>
 
@@ -423,17 +467,17 @@ export default function Home() {
               {
                 number: "01",
                 title: "Review Your Presence",
-                text: "We assess how your business currently appears online and identify the strongest areas for improvement.",
+                text: "We analyse how your business currently appears online and identify where you are losing potential customers.",
               },
               {
                 number: "02",
                 title: "Strengthen Visibility",
-                text: "We improve key trust signals, optimise your presence, and make your business more competitive locally.",
+                text: "We improve your positioning, optimise key areas, and make your business more competitive locally.",
               },
               {
                 number: "03",
                 title: "Generate More Enquiries",
-                text: "We focus on clearer positioning and stronger conversion paths to help turn searches into real leads.",
+                text: "We refine your messaging and conversion paths to turn visibility into calls, messages, and real leads.",
               },
             ].map((step) => (
               <div
@@ -456,7 +500,9 @@ export default function Home() {
                 >
                   {step.number}
                 </div>
-                <h3 style={{ margin: "0 0 12px", fontSize: "22px" }}>{step.title}</h3>
+                <h3 style={{ margin: "0 0 12px", fontSize: "22px" }}>
+                  {step.title}
+                </h3>
                 <p style={{ color: "#d0d0d0", lineHeight: 1.75, marginBottom: 0 }}>
                   {step.text}
                 </p>
@@ -489,15 +535,15 @@ export default function Home() {
           {[
             {
               title: "Results Driven",
-              text: "Everything is built around one goal: helping your business generate stronger local visibility and more valuable enquiries.",
+              text: "Everything we do is focused on one outcome — helping your business generate more visibility and more valuable enquiries.",
             },
             {
-              title: "Clear Positioning",
-              text: "We help present your business in a more credible, professional way so customers trust you faster.",
+              title: "Strong Positioning",
+              text: "We present your business in a way that builds trust quickly and makes you stand out from weaker competitors.",
             },
             {
-              title: "Simple & Practical",
-              text: "No overcomplicated jargon or unnecessary fluff. Just focused improvements that support business growth.",
+              title: "Clear & Practical",
+              text: "No unnecessary complexity. Just focused improvements that support real business growth.",
             },
           ].map((item) => (
             <div
@@ -515,6 +561,98 @@ export default function Home() {
               </p>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section
+        id="audit"
+        style={{
+          maxWidth: "1200px",
+          margin: "0 auto",
+          padding: "0 24px 100px",
+        }}
+      >
+        <div
+          style={{
+            background:
+              "linear-gradient(145deg, rgba(212,175,55,0.14), rgba(255,255,255,0.03))",
+            border: "1px solid rgba(212,175,55,0.2)",
+            borderRadius: "30px",
+            padding: "42px 30px",
+          }}
+        >
+          <div style={{ textAlign: "center", marginBottom: "34px" }}>
+            <p style={sectionLabelStyle}>Free Audit</p>
+            <h2 style={sectionTitleStyle}>Request Your Free Google Audit</h2>
+            <p style={sectionTextStyle}>
+              Send your details and we’ll review your current presence, identify
+              visible gaps, and highlight where your business may be losing
+              local customers.
+            </p>
+          </div>
+
+          <form
+            onSubmit={handleSubmit}
+            style={{
+              maxWidth: "820px",
+              margin: "0 auto",
+              display: "grid",
+              gap: "18px",
+            }}
+          >
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+                gap: "18px",
+              }}
+            >
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                value={form.name}
+                onChange={handleChange}
+                required
+                style={inputStyle}
+              />
+              <input
+                type="text"
+                name="business"
+                placeholder="Business Name"
+                value={form.business}
+                onChange={handleChange}
+                required
+                style={inputStyle}
+              />
+            </div>
+
+            <input
+              type="text"
+              name="phone"
+              placeholder="Phone Number"
+              value={form.phone}
+              onChange={handleChange}
+              required
+              style={inputStyle}
+            />
+
+            <textarea
+              name="message"
+              placeholder="Tell us a little about your business or what you want help with"
+              value={form.message}
+              onChange={handleChange}
+              rows={6}
+              required
+              style={textareaStyle}
+            />
+
+            <div style={{ textAlign: "center" }}>
+              <button type="submit" style={submitButtonStyle}>
+                Get Free Google Audit
+              </button>
+            </div>
+          </form>
         </div>
       </section>
 
@@ -537,7 +675,9 @@ export default function Home() {
           }}
         >
           <p style={sectionLabelStyle}>Contact Us</p>
-          <h2 style={sectionTitleStyle}>Ready to Get More Customers from Google?</h2>
+          <h2 style={sectionTitleStyle}>
+            Ready to Get More Customers from Google?
+          </h2>
           <p style={sectionTextStyle}>
             Let’s talk about how XcelRank can help your business get seen, get
             more calls, and win more customers in your local area.
@@ -689,4 +829,40 @@ const sectionTextStyle = {
 const contactLinkStyle = {
   color: "#ffffff",
   textDecoration: "none",
+};
+
+const inputStyle = {
+  width: "100%",
+  padding: "16px 18px",
+  borderRadius: "16px",
+  border: "1px solid rgba(255,255,255,0.1)",
+  backgroundColor: "#0d0d0d",
+  color: "#ffffff",
+  fontSize: "16px",
+  outline: "none",
+  boxSizing: "border-box" as const,
+};
+
+const textareaStyle = {
+  width: "100%",
+  padding: "16px 18px",
+  borderRadius: "16px",
+  border: "1px solid rgba(255,255,255,0.1)",
+  backgroundColor: "#0d0d0d",
+  color: "#ffffff",
+  fontSize: "16px",
+  outline: "none",
+  resize: "vertical" as const,
+  boxSizing: "border-box" as const,
+};
+
+const submitButtonStyle = {
+  backgroundColor: "#d4af37",
+  color: "#080808",
+  padding: "14px 26px",
+  borderRadius: "999px",
+  border: "none",
+  fontWeight: 700,
+  fontSize: "16px",
+  cursor: "pointer",
 };
