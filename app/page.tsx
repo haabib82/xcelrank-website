@@ -101,7 +101,7 @@ export default function Home() {
                 marginBottom: "20px",
               }}
             >
-              Premium Local SEO • Google Growth • Lead Generation
+              Local SEO • Google Growth • Lead Generation
             </div>
 
             <h1
@@ -112,9 +112,7 @@ export default function Home() {
                 fontWeight: 800,
               }}
             >
-              Premium Growth
-              <br />
-              for Local Businesses
+              Get More Calls, More Customers, and Real Growth from Google
             </h1>
 
             <p
@@ -122,13 +120,13 @@ export default function Home() {
                 fontSize: "19px",
                 lineHeight: 1.8,
                 color: "#d8d8d8",
-                maxWidth: "680px",
+                maxWidth: "700px",
                 marginBottom: "30px",
               }}
             >
-              XcelRank helps ambitious local businesses improve visibility on
-              Google, attract more quality enquiries, and build a stronger online
-              presence that turns searches into real customers.
+              If your business isn’t showing up properly on Google, you’re losing
+              customers every day. XcelRank helps you improve your visibility,
+              attract more local enquiries, and turn searches into real business.
             </p>
 
             <div
@@ -136,7 +134,7 @@ export default function Home() {
                 display: "flex",
                 gap: "14px",
                 flexWrap: "wrap",
-                marginBottom: "26px",
+                marginBottom: "20px",
               }}
             >
               <a href="tel:07496004510" style={primaryButtonStyle}>
@@ -152,6 +150,19 @@ export default function Home() {
               </a>
             </div>
 
+            <p
+              style={{
+                color: "#d4af37",
+                fontSize: "15px",
+                lineHeight: 1.7,
+                marginBottom: "24px",
+                maxWidth: "680px",
+              }}
+            >
+              Most local businesses lose customers daily simply because they are
+              not visible enough online.
+            </p>
+
             <div
               style={{
                 display: "flex",
@@ -161,9 +172,9 @@ export default function Home() {
                 fontSize: "15px",
               }}
             >
-              <span>✔ Premium positioning</span>
-              <span>✔ Clear growth strategy</span>
-              <span>✔ Built to convert enquiries</span>
+              <span>✔ More visibility</span>
+              <span>✔ More local enquiries</span>
+              <span>✔ More customer action</span>
             </div>
           </div>
 
@@ -237,32 +248,62 @@ export default function Home() {
       >
         <div
           style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-            gap: "18px",
+            backgroundColor: "#101010",
+            border: "1px solid rgba(212,175,55,0.14)",
+            borderRadius: "28px",
+            padding: "36px 28px",
           }}
         >
-          {[
-            ["Premium Presentation", "A cleaner, more credible online image that builds trust quickly."],
-            ["Local Authority", "A stronger presence where nearby customers are already searching."],
-            ["Higher Intent Leads", "Built to attract real enquiries rather than empty traffic."],
-            ["Growth-Focused Strategy", "Every improvement is designed to support business growth."],
-          ].map(([title, text]) => (
-            <div
-              key={title}
-              style={{
-                backgroundColor: "#101010",
-                border: "1px solid rgba(255,255,255,0.07)",
-                borderRadius: "22px",
-                padding: "24px",
-              }}
-            >
-              <h3 style={{ marginTop: 0, fontSize: "20px" }}>{title}</h3>
-              <p style={{ marginBottom: 0, color: "#cfcfcf", lineHeight: 1.7 }}>
-                {text}
-              </p>
-            </div>
-          ))}
+          <div style={{ textAlign: "center", marginBottom: "28px" }}>
+            <p style={sectionLabelStyle}>The Problem</p>
+            <h2 style={sectionTitleStyle}>Most Local Businesses Are Invisible on Google</h2>
+            <p style={sectionTextStyle}>
+              If people can’t find your business, they can’t choose your
+              business. That means lost calls, lost enquiries, and lost customers.
+            </p>
+          </div>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+              gap: "18px",
+            }}
+          >
+            {[
+              "Your competitors are showing up above you",
+              "Your Google profile isn’t fully optimised",
+              "You’re missing out on daily enquiries",
+              "Your online presence may not build enough trust",
+            ].map((item) => (
+              <div
+                key={item}
+                style={{
+                  backgroundColor: "#080808",
+                  border: "1px solid rgba(255,255,255,0.07)",
+                  borderRadius: "18px",
+                  padding: "20px",
+                  color: "#d8d8d8",
+                  lineHeight: 1.7,
+                }}
+              >
+                {item}
+              </div>
+            ))}
+          </div>
+
+          <p
+            style={{
+              color: "#d4af37",
+              textAlign: "center",
+              marginTop: "24px",
+              fontSize: "16px",
+              lineHeight: 1.7,
+            }}
+          >
+            Every day your business isn’t properly visible on Google, you are
+            losing potential customers to your competitors.
+          </p>
         </div>
       </section>
 
@@ -276,10 +317,11 @@ export default function Home() {
       >
         <div style={{ textAlign: "center", marginBottom: "42px" }}>
           <p style={sectionLabelStyle}>How We Help You Grow</p>
-          <h2 style={sectionTitleStyle}>Premium Services Built Around Results</h2>
+          <h2 style={sectionTitleStyle}>Services Designed to Get You Seen and Chosen</h2>
           <p style={sectionTextStyle}>
-            Practical systems designed to increase your visibility, generate more
-            enquiries, and help your business grow with a stronger local presence.
+            We focus on the areas that actually matter: stronger visibility,
+            better trust, and more real enquiries from people already looking for
+            your services.
           </p>
         </div>
 
@@ -294,17 +336,17 @@ export default function Home() {
             {
               icon: "📍",
               title: "Google Growth System",
-              text: "Transform your Google Business Profile into a powerful lead-generating asset. We strengthen visibility, improve trust signals, refine key business information, and position your profile to attract more local customers consistently.",
+              text: "Make your business impossible to ignore on Google. We optimise your Google presence so your business appears stronger, ranks higher, and attracts more calls from real local customers.",
             },
             {
               icon: "📈",
               title: "Local Visibility Boost",
-              text: "Increase your presence across your target area and appear in front of customers actively searching for your services. This is designed to help you compete more effectively, stand out in local search, and build stronger area-based visibility.",
+              text: "Get found by customers in your area. We position your business where people are already searching, helping you appear more often and stand out from local competitors.",
             },
             {
               icon: "🤝",
               title: "Lead Conversion Setup",
-              text: "Turn visitors into real enquiries with stronger messaging, clearer calls-to-action, and a cleaner customer journey. We focus on creating a digital presence that encourages calls, WhatsApp messages, and genuine business enquiries.",
+              text: "Turn visitors into real enquiries. We improve your website and messaging so more people take action — calling, messaging, and choosing your business.",
             },
           ].map((service) => (
             <div
@@ -362,10 +404,11 @@ export default function Home() {
         >
           <div style={{ textAlign: "center", marginBottom: "40px" }}>
             <p style={sectionLabelStyle}>How It Works</p>
-            <h2 style={sectionTitleStyle}>A Clear, Professional Process</h2>
+            <h2 style={sectionTitleStyle}>A Clear Process Focused on Results</h2>
             <p style={sectionTextStyle}>
-              We keep the process simple, focused, and built around helping your
-              business get seen, trusted, and contacted more often.
+              We keep things straightforward. First we find the gaps, then we
+              strengthen your presence, then we help turn that visibility into
+              more enquiries.
             </p>
           </div>
 
@@ -433,7 +476,7 @@ export default function Home() {
       >
         <div style={{ textAlign: "center", marginBottom: "40px" }}>
           <p style={sectionLabelStyle}>Why Choose Us</p>
-          <h2 style={sectionTitleStyle}>Positioned for Serious Growth</h2>
+          <h2 style={sectionTitleStyle}>Built Around What Actually Matters</h2>
         </div>
 
         <div
@@ -449,11 +492,11 @@ export default function Home() {
               text: "Everything is built around one goal: helping your business generate stronger local visibility and more valuable enquiries.",
             },
             {
-              title: "Premium Positioning",
-              text: "We focus on creating a more credible, professional online presence that helps your business stand out from weaker competitors.",
+              title: "Clear Positioning",
+              text: "We help present your business in a more credible, professional way so customers trust you faster.",
             },
             {
-              title: "Clear & Practical",
+              title: "Simple & Practical",
               text: "No overcomplicated jargon or unnecessary fluff. Just focused improvements that support business growth.",
             },
           ].map((item) => (
@@ -494,11 +537,10 @@ export default function Home() {
           }}
         >
           <p style={sectionLabelStyle}>Contact Us</p>
-          <h2 style={sectionTitleStyle}>Ready to Elevate Your Business?</h2>
+          <h2 style={sectionTitleStyle}>Ready to Get More Customers from Google?</h2>
           <p style={sectionTextStyle}>
-            Let’s talk about how XcelRank can strengthen your visibility, improve
-            your digital presence, and help turn more local searches into real
-            opportunities.
+            Let’s talk about how XcelRank can help your business get seen, get
+            more calls, and win more customers in your local area.
           </p>
 
           <div
