@@ -6,6 +6,7 @@ export default function Home() {
   const [form, setForm] = useState({
     name: "",
     business: "",
+    email: "",
     phone: "",
     message: "",
   });
@@ -21,7 +22,7 @@ export default function Home() {
 
     const subject = encodeURIComponent("Free Google Audit Request - XcelRank");
     const body = encodeURIComponent(
-      `Name: ${form.name}\nBusiness: ${form.business}\nPhone: ${form.phone}\n\nMessage:\n${form.message}`
+      `Name: ${form.name}\nBusiness: ${form.business}\nEmail: ${form.email}\nPhone: ${form.phone}\n\nMessage:\n${form.message}`
     );
 
     window.location.href = `mailto:info@xcelrank.com?subject=${subject}&body=${body}`;
@@ -114,6 +115,7 @@ export default function Home() {
             gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
             gap: "42px",
             alignItems: "center",
+            justifyContent: "space-between",
           }}
         >
           <div>
@@ -141,6 +143,7 @@ export default function Home() {
                 lineHeight: 1.02,
                 margin: "0 0 18px",
                 fontWeight: 800,
+                maxWidth: "720px",
               }}
             >
               Get More Calls, More Customers, and Real Growth from Google
@@ -151,7 +154,7 @@ export default function Home() {
                 fontSize: "19px",
                 lineHeight: 1.8,
                 color: "#d8d8d8",
-                maxWidth: "700px",
+                maxWidth: "620px",
                 marginBottom: "30px",
               }}
             >
@@ -191,7 +194,7 @@ export default function Home() {
                 fontSize: "15px",
                 lineHeight: 1.7,
                 marginBottom: "24px",
-                maxWidth: "680px",
+                maxWidth: "620px",
               }}
             >
               Most local businesses lose customers daily simply because they are
@@ -200,9 +203,10 @@ export default function Home() {
 
             <div
               style={{
-                display: "flex",
-                gap: "18px",
-                flexWrap: "wrap",
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+                gap: "10px",
+                maxWidth: "560px",
                 color: "#cfcfcf",
                 fontSize: "15px",
               }}
@@ -291,7 +295,7 @@ export default function Home() {
         >
           <div style={{ textAlign: "center", marginBottom: "28px" }}>
             <p style={sectionLabelStyle}>The Problem</p>
-            <h2 style={sectionTitleStyle}>
+            <h2 style={{ ...sectionTitleStyle, margin: "0 0 10px" }}>
               Most Local Businesses Are Invisible on Google
             </h2>
             <p style={sectionTextStyle}>
@@ -337,6 +341,8 @@ export default function Home() {
               marginTop: "24px",
               fontSize: "16px",
               lineHeight: 1.7,
+              maxWidth: "760px",
+              marginInline: "auto",
             }}
           >
             Every day this continues, your competitors take the customers that
@@ -355,14 +361,13 @@ export default function Home() {
       >
         <div style={{ textAlign: "center", marginBottom: "42px" }}>
           <p style={sectionLabelStyle}>How We Help You Grow</p>
-          <h2 style={sectionTitleStyle}>
+          <h2 style={{ ...sectionTitleStyle, margin: "0 0 10px" }}>
             Focused Systems Designed to Get You Seen and Chosen
           </h2>
           <p style={sectionTextStyle}>
-            We don’t offer random services.
-            <br />
-            We focus on the key areas that directly impact your visibility,
-            trust, and ability to generate real enquiries.
+            We don’t offer random services. We focus on the key areas that
+            directly impact your visibility, trust, and ability to generate real
+            enquiries.
           </p>
         </div>
 
@@ -399,32 +404,38 @@ export default function Home() {
                 borderRadius: "24px",
                 padding: "30px",
                 boxShadow: "0 16px 40px rgba(0,0,0,0.28)",
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
               }}
             >
-              <div
-                style={{
-                  width: "62px",
-                  height: "62px",
-                  borderRadius: "18px",
-                  backgroundColor: "rgba(212,175,55,0.1)",
-                  border: "1px solid rgba(212,175,55,0.18)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: "30px",
-                  marginBottom: "18px",
-                }}
-              >
-                {service.icon}
+              <div>
+                <div
+                  style={{
+                    width: "62px",
+                    height: "62px",
+                    borderRadius: "18px",
+                    backgroundColor: "rgba(212,175,55,0.1)",
+                    border: "1px solid rgba(212,175,55,0.18)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: "30px",
+                    marginBottom: "18px",
+                  }}
+                >
+                  {service.icon}
+                </div>
+
+                <h3 style={{ fontSize: "24px", margin: "0 0 14px" }}>
+                  {service.title}
+                </h3>
+
+                <p style={{ color: "#d0d0d0", lineHeight: 1.8, margin: 0 }}>
+                  {service.text}
+                </p>
               </div>
-
-              <h3 style={{ fontSize: "24px", margin: "0 0 14px" }}>
-                {service.title}
-              </h3>
-
-              <p style={{ color: "#d0d0d0", lineHeight: 1.8, margin: 0 }}>
-                {service.text}
-              </p>
             </div>
           ))}
         </div>
@@ -447,12 +458,12 @@ export default function Home() {
         >
           <div style={{ textAlign: "center", marginBottom: "40px" }}>
             <p style={sectionLabelStyle}>How It Works</p>
-            <h2 style={sectionTitleStyle}>A Clear Process Focused on Results</h2>
+            <h2 style={{ ...sectionTitleStyle, margin: "0 0 10px" }}>
+              A Clear Process Focused on Results
+            </h2>
             <p style={sectionTextStyle}>
-              We keep things simple.
-              <br />
-              Identify the gaps, strengthen your presence, and turn visibility
-              into real enquiries.
+              We keep things simple. Identify the gaps, strengthen your
+              presence, and turn visibility into real enquiries.
             </p>
           </div>
 
@@ -522,7 +533,9 @@ export default function Home() {
       >
         <div style={{ textAlign: "center", marginBottom: "40px" }}>
           <p style={sectionLabelStyle}>Why Choose Us</p>
-          <h2 style={sectionTitleStyle}>Built Around What Actually Matters</h2>
+          <h2 style={{ ...sectionTitleStyle, margin: "0 0 10px" }}>
+            Built Around What Actually Matters
+          </h2>
         </div>
 
         <div
@@ -583,7 +596,9 @@ export default function Home() {
         >
           <div style={{ textAlign: "center", marginBottom: "34px" }}>
             <p style={sectionLabelStyle}>Free Audit</p>
-            <h2 style={sectionTitleStyle}>Request Your Free Google Audit</h2>
+            <h2 style={{ ...sectionTitleStyle, margin: "0 0 10px" }}>
+              Request Your Free Google Audit
+            </h2>
             <p style={sectionTextStyle}>
               Send your details and we’ll review your current presence, identify
               visible gaps, and highlight where your business may be losing
@@ -598,6 +613,7 @@ export default function Home() {
               margin: "0 auto",
               display: "grid",
               gap: "18px",
+              padding: "10px",
             }}
           >
             <div
@@ -627,15 +643,32 @@ export default function Home() {
               />
             </div>
 
-            <input
-              type="text"
-              name="phone"
-              placeholder="Phone Number"
-              value={form.phone}
-              onChange={handleChange}
-              required
-              style={inputStyle}
-            />
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+                gap: "18px",
+              }}
+            >
+              <input
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                value={form.email}
+                onChange={handleChange}
+                required
+                style={inputStyle}
+              />
+              <input
+                type="text"
+                name="phone"
+                placeholder="Phone Number"
+                value={form.phone}
+                onChange={handleChange}
+                required
+                style={inputStyle}
+              />
+            </div>
 
             <textarea
               name="message"
@@ -675,7 +708,7 @@ export default function Home() {
           }}
         >
           <p style={sectionLabelStyle}>Contact Us</p>
-          <h2 style={sectionTitleStyle}>
+          <h2 style={{ ...sectionTitleStyle, margin: "0 0 10px" }}>
             Ready to Get More Customers from Google?
           </h2>
           <p style={sectionTextStyle}>
@@ -822,8 +855,9 @@ const sectionTextStyle = {
   color: "#d0d0d0",
   fontSize: "17px",
   lineHeight: 1.75,
-  maxWidth: "760px",
+  maxWidth: "600px",
   margin: "0 auto",
+  textAlign: "center" as const,
 };
 
 const contactLinkStyle = {
@@ -841,6 +875,7 @@ const inputStyle = {
   fontSize: "16px",
   outline: "none",
   boxSizing: "border-box" as const,
+  marginBottom: "10px",
 };
 
 const textareaStyle = {
@@ -854,6 +889,8 @@ const textareaStyle = {
   outline: "none",
   resize: "vertical" as const,
   boxSizing: "border-box" as const,
+  minHeight: "140px",
+  marginBottom: "10px",
 };
 
 const submitButtonStyle = {
