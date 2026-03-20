@@ -73,7 +73,7 @@ export default function Home() {
           <nav
             style={{
               display: "flex",
-              gap: "22px",
+              gap: "28px",
               flexWrap: "wrap",
               alignItems: "center",
             }}
@@ -103,7 +103,7 @@ export default function Home() {
       <section
         style={{
           background:
-            "radial-gradient(circle at top right, rgba(212,175,55,0.22), transparent 34%), radial-gradient(circle at top left, rgba(255,255,255,0.05), transparent 24%)",
+            "radial-gradient(circle at top right, rgba(212,175,55,0.12), transparent 34%), radial-gradient(circle at top left, rgba(255,255,255,0.04), transparent 24%)",
         }}
       >
         <div
@@ -112,10 +112,9 @@ export default function Home() {
             margin: "0 auto",
             padding: "95px 24px 80px",
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+            gridTemplateColumns: "1.1fr 0.9fr",
             gap: "42px",
             alignItems: "center",
-            justifyContent: "space-between",
           }}
         >
           <div>
@@ -139,11 +138,11 @@ export default function Home() {
 
             <h1
               style={{
-                fontSize: "clamp(42px, 6vw, 72px)",
-                lineHeight: 1.02,
+                fontSize: "clamp(40px, 5vw, 64px)",
+                lineHeight: 1.05,
                 margin: "0 0 18px",
                 fontWeight: 800,
-                maxWidth: "720px",
+                maxWidth: "580px",
               }}
             >
               Get More Calls, More Customers, and Real Growth from Google
@@ -217,12 +216,12 @@ export default function Home() {
             </div>
           </div>
 
-          <div>
+          <div style={{ marginTop: "40px" }}>
             <div
               style={{
                 background:
-                  "linear-gradient(145deg, rgba(255,255,255,0.04), rgba(212,175,55,0.08))",
-                border: "1px solid rgba(212,175,55,0.18)",
+                  "linear-gradient(145deg, rgba(255,255,255,0.04), rgba(212,175,55,0.06))",
+                border: "1px solid rgba(212,175,55,0.16)",
                 borderRadius: "30px",
                 padding: "28px",
                 boxShadow: "0 24px 70px rgba(0,0,0,0.45)",
