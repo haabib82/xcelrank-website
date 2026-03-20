@@ -3,7 +3,7 @@ export default function Home() {
     <main
       style={{
         fontFamily: "Arial, sans-serif",
-        backgroundColor: "#080808",
+        backgroundColor: "#070707",
         color: "#ffffff",
         minHeight: "100vh",
       }}
@@ -13,7 +13,7 @@ export default function Home() {
           position: "sticky",
           top: 0,
           zIndex: 50,
-          backgroundColor: "rgba(8,8,8,0.92)",
+          backgroundColor: "rgba(7,7,7,0.92)",
           backdropFilter: "blur(10px)",
           borderBottom: "1px solid rgba(255,255,255,0.08)",
         }}
@@ -71,14 +71,14 @@ export default function Home() {
       <section
         style={{
           background:
-            "radial-gradient(circle at top right, rgba(212,175,55,0.18), transparent 35%), radial-gradient(circle at top left, rgba(255,255,255,0.06), transparent 25%)",
+            "radial-gradient(circle at top right, rgba(212,175,55,0.22), transparent 34%), radial-gradient(circle at top left, rgba(255,255,255,0.05), transparent 24%)",
         }}
       >
         <div
           style={{
             maxWidth: "1200px",
             margin: "0 auto",
-            padding: "90px 24px 80px",
+            padding: "95px 24px 80px",
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
             gap: "42px",
@@ -90,7 +90,7 @@ export default function Home() {
               style={{
                 display: "inline-block",
                 backgroundColor: "rgba(212,175,55,0.12)",
-                border: "1px solid rgba(212,175,55,0.25)",
+                border: "1px solid rgba(212,175,55,0.24)",
                 color: "#d4af37",
                 padding: "8px 14px",
                 borderRadius: "999px",
@@ -101,34 +101,34 @@ export default function Home() {
                 marginBottom: "20px",
               }}
             >
-              Local SEO • Google Rankings • Lead Generation
+              Premium Local SEO • Google Growth • Lead Generation
             </div>
 
             <h1
               style={{
-                fontSize: "clamp(40px, 6vw, 68px)",
-                lineHeight: 1.05,
+                fontSize: "clamp(42px, 6vw, 72px)",
+                lineHeight: 1.02,
                 margin: "0 0 18px",
                 fontWeight: 800,
               }}
             >
-              Grow Your Business
+              Premium Growth
               <br />
-              with XcelRank
+              for Local Businesses
             </h1>
 
             <p
               style={{
                 fontSize: "19px",
-                lineHeight: 1.75,
+                lineHeight: 1.8,
                 color: "#d8d8d8",
                 maxWidth: "680px",
                 marginBottom: "30px",
               }}
             >
-              We help local businesses improve their Google presence, attract more
-              enquiries, and turn online searches into real calls, bookings, and
-              customers.
+              XcelRank helps ambitious local businesses improve visibility on
+              Google, attract more quality enquiries, and build a stronger online
+              presence that turns searches into real customers.
             </p>
 
             <div
@@ -161,9 +161,9 @@ export default function Home() {
                 fontSize: "15px",
               }}
             >
-              <span>✔ Results-focused approach</span>
-              <span>✔ Simple, practical strategy</span>
-              <span>✔ Built for local growth</span>
+              <span>✔ Premium positioning</span>
+              <span>✔ Clear growth strategy</span>
+              <span>✔ Built to convert enquiries</span>
             </div>
           </div>
 
@@ -172,30 +172,25 @@ export default function Home() {
               style={{
                 background:
                   "linear-gradient(145deg, rgba(255,255,255,0.04), rgba(212,175,55,0.08))",
-                border: "1px solid rgba(212,175,55,0.2)",
-                borderRadius: "28px",
+                border: "1px solid rgba(212,175,55,0.18)",
+                borderRadius: "30px",
                 padding: "28px",
                 boxShadow: "0 24px 70px rgba(0,0,0,0.45)",
               }}
             >
-              <div
-                style={{
-                  display: "grid",
-                  gap: "18px",
-                }}
-              >
+              <div style={{ display: "grid", gap: "18px" }}>
                 {[
                   {
-                    title: "Google Business Profile",
-                    text: "Improve visibility, trust, and local reach so your business stands out in search.",
+                    title: "Stronger Google Presence",
+                    text: "Build a profile that looks more trusted, more complete, and more visible to nearby customers.",
                   },
                   {
-                    title: "Local SEO Strategy",
-                    text: "Target the right areas and search terms to bring more qualified local traffic.",
+                    title: "Higher Local Visibility",
+                    text: "Show up in the right places when people search for the services you offer in your area.",
                   },
                   {
-                    title: "Lead-Focused Website",
-                    text: "Clear messaging, strong calls-to-action, and a professional digital presence.",
+                    title: "Better Lead Conversion",
+                    text: "Turn traffic into calls, messages, and enquiries with stronger messaging and a cleaner customer journey.",
                   },
                 ].map((item) => (
                   <div
@@ -248,17 +243,17 @@ export default function Home() {
           }}
         >
           {[
-            ["Clear Strategy", "No fluff, no confusion, just practical action."],
-            ["Professional Presence", "A stronger online image that builds trust."],
-            ["More Enquiries", "Designed to turn traffic into real leads."],
-            ["Local Growth", "Focused on helping nearby customers find you."],
+            ["Premium Presentation", "A cleaner, more credible online image that builds trust quickly."],
+            ["Local Authority", "A stronger presence where nearby customers are already searching."],
+            ["Higher Intent Leads", "Built to attract real enquiries rather than empty traffic."],
+            ["Growth-Focused Strategy", "Every improvement is designed to support business growth."],
           ].map(([title, text]) => (
             <div
               key={title}
               style={{
-                backgroundColor: "#111111",
+                backgroundColor: "#101010",
                 border: "1px solid rgba(255,255,255,0.07)",
-                borderRadius: "20px",
+                borderRadius: "22px",
                 padding: "24px",
               }}
             >
@@ -276,59 +271,73 @@ export default function Home() {
         style={{
           maxWidth: "1200px",
           margin: "0 auto",
-          padding: "0 24px 90px",
+          padding: "0 24px 100px",
         }}
       >
-        <div style={{ textAlign: "center", marginBottom: "40px" }}>
-          <p style={sectionLabelStyle}>Our Services</p>
-          <h2 style={sectionTitleStyle}>What We Help You With</h2>
+        <div style={{ textAlign: "center", marginBottom: "42px" }}>
+          <p style={sectionLabelStyle}>How We Help You Grow</p>
+          <h2 style={sectionTitleStyle}>Premium Services Built Around Results</h2>
           <p style={sectionTextStyle}>
-            Practical digital growth services designed to help local businesses
-            get found, get calls, and win more customers.
+            Practical systems designed to increase your visibility, generate more
+            enquiries, and help your business grow with a stronger local presence.
           </p>
         </div>
 
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
             gap: "24px",
           }}
         >
           {[
             {
               icon: "📍",
-              title: "Google Business Optimisation",
-              text: "Improve your Google Business Profile so your business appears stronger, more trusted, and more visible in local search.",
+              title: "Google Growth System",
+              text: "Transform your Google Business Profile into a powerful lead-generating asset. We strengthen visibility, improve trust signals, refine key business information, and position your profile to attract more local customers consistently.",
             },
             {
               icon: "📈",
-              title: "Local SEO",
-              text: "Rank higher in your target area and attract nearby customers who are actively searching for your services.",
+              title: "Local Visibility Boost",
+              text: "Increase your presence across your target area and appear in front of customers actively searching for your services. This is designed to help you compete more effectively, stand out in local search, and build stronger area-based visibility.",
             },
             {
               icon: "🤝",
-              title: "Lead Generation",
-              text: "Turn website traffic into enquiries with clear messaging, conversion-focused pages, and a strategy built for growth.",
+              title: "Lead Conversion Setup",
+              text: "Turn visitors into real enquiries with stronger messaging, clearer calls-to-action, and a cleaner customer journey. We focus on creating a digital presence that encourages calls, WhatsApp messages, and genuine business enquiries.",
             },
           ].map((service) => (
             <div
               key={service.title}
               style={{
-                backgroundColor: "#111111",
-                border: "1px solid rgba(255,255,255,0.08)",
-                borderRadius: "22px",
-                padding: "28px",
-                boxShadow: "0 12px 35px rgba(0,0,0,0.28)",
+                background:
+                  "linear-gradient(180deg, rgba(18,18,18,1), rgba(10,10,10,1))",
+                border: "1px solid rgba(212,175,55,0.16)",
+                borderRadius: "24px",
+                padding: "30px",
+                boxShadow: "0 16px 40px rgba(0,0,0,0.28)",
               }}
             >
-              <div style={{ fontSize: "34px", marginBottom: "14px" }}>
+              <div
+                style={{
+                  width: "62px",
+                  height: "62px",
+                  borderRadius: "18px",
+                  backgroundColor: "rgba(212,175,55,0.1)",
+                  border: "1px solid rgba(212,175,55,0.18)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: "30px",
+                  marginBottom: "18px",
+                }}
+              >
                 {service.icon}
               </div>
-              <h3 style={{ fontSize: "23px", margin: "0 0 12px" }}>
-                {service.title}
-              </h3>
-              <p style={{ color: "#d0d0d0", lineHeight: 1.75, margin: 0 }}>
+
+              <h3 style={{ fontSize: "24px", margin: "0 0 14px" }}>{service.title}</h3>
+
+              <p style={{ color: "#d0d0d0", lineHeight: 1.8, margin: 0 }}>
                 {service.text}
               </p>
             </div>
@@ -339,10 +348,10 @@ export default function Home() {
       <section
         id="process"
         style={{
-          backgroundColor: "#101010",
+          backgroundColor: "#0f0f0f",
           borderTop: "1px solid rgba(255,255,255,0.06)",
           borderBottom: "1px solid rgba(255,255,255,0.06)",
-          padding: "90px 24px",
+          padding: "95px 24px",
         }}
       >
         <div
@@ -353,10 +362,10 @@ export default function Home() {
         >
           <div style={{ textAlign: "center", marginBottom: "40px" }}>
             <p style={sectionLabelStyle}>How It Works</p>
-            <h2 style={sectionTitleStyle}>A Simple Process</h2>
+            <h2 style={sectionTitleStyle}>A Clear, Professional Process</h2>
             <p style={sectionTextStyle}>
-              We keep things straightforward, focused, and built around real
-              business results.
+              We keep the process simple, focused, and built around helping your
+              business get seen, trusted, and contacted more often.
             </p>
           </div>
 
@@ -371,17 +380,17 @@ export default function Home() {
               {
                 number: "01",
                 title: "Review Your Presence",
-                text: "We look at how your business appears online and identify the main opportunities.",
+                text: "We assess how your business currently appears online and identify the strongest areas for improvement.",
               },
               {
                 number: "02",
-                title: "Improve Visibility",
-                text: "We strengthen your profile, local relevance, and key trust signals.",
+                title: "Strengthen Visibility",
+                text: "We improve key trust signals, optimise your presence, and make your business more competitive locally.",
               },
               {
                 number: "03",
-                title: "Drive More Enquiries",
-                text: "We focus on getting more calls, messages, and local customer action.",
+                title: "Generate More Enquiries",
+                text: "We focus on clearer positioning and stronger conversion paths to help turn searches into real leads.",
               },
             ].map((step) => (
               <div
@@ -404,9 +413,7 @@ export default function Home() {
                 >
                   {step.number}
                 </div>
-                <h3 style={{ margin: "0 0 12px", fontSize: "22px" }}>
-                  {step.title}
-                </h3>
+                <h3 style={{ margin: "0 0 12px", fontSize: "22px" }}>{step.title}</h3>
                 <p style={{ color: "#d0d0d0", lineHeight: 1.75, marginBottom: 0 }}>
                   {step.text}
                 </p>
@@ -421,12 +428,12 @@ export default function Home() {
         style={{
           maxWidth: "1200px",
           margin: "0 auto",
-          padding: "90px 24px",
+          padding: "95px 24px",
         }}
       >
         <div style={{ textAlign: "center", marginBottom: "40px" }}>
           <p style={sectionLabelStyle}>Why Choose Us</p>
-          <h2 style={sectionTitleStyle}>Simple, Practical, Results-Focused</h2>
+          <h2 style={sectionTitleStyle}>Positioned for Serious Growth</h2>
         </div>
 
         <div
@@ -439,15 +446,15 @@ export default function Home() {
           {[
             {
               title: "Results Driven",
-              text: "We focus on what matters most: more calls, more leads, and more revenue.",
+              text: "Everything is built around one goal: helping your business generate stronger local visibility and more valuable enquiries.",
             },
             {
-              title: "Local Expertise",
-              text: "We understand how local businesses compete online and how to improve visibility in your target area.",
+              title: "Premium Positioning",
+              text: "We focus on creating a more credible, professional online presence that helps your business stand out from weaker competitors.",
             },
             {
-              title: "Professional & Clear",
-              text: "No overcomplication, just a strong online presence and a strategy built to convert.",
+              title: "Clear & Practical",
+              text: "No overcomplicated jargon or unnecessary fluff. Just focused improvements that support business growth.",
             },
           ].map((item) => (
             <div
@@ -481,16 +488,17 @@ export default function Home() {
             background:
               "linear-gradient(145deg, rgba(212,175,55,0.14), rgba(255,255,255,0.03))",
             border: "1px solid rgba(212,175,55,0.2)",
-            borderRadius: "28px",
-            padding: "40px 28px",
+            borderRadius: "30px",
+            padding: "42px 30px",
             textAlign: "center",
           }}
         >
           <p style={sectionLabelStyle}>Contact Us</p>
-          <h2 style={sectionTitleStyle}>Ready to Grow Your Business?</h2>
+          <h2 style={sectionTitleStyle}>Ready to Elevate Your Business?</h2>
           <p style={sectionTextStyle}>
-            Let’s talk about how XcelRank can help your business get found, get
-            more calls, and win more customers.
+            Let’s talk about how XcelRank can strengthen your visibility, improve
+            your digital presence, and help turn more local searches into real
+            opportunities.
           </p>
 
           <div
