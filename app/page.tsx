@@ -1,904 +1,612 @@
-"use client";
-
-import { useState } from "react";
-
-export default function Home() {
-  const [form, setForm] = useState({
-    name: "",
-    business: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    const subject = encodeURIComponent("Free Google Audit Request - XcelRank");
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nBusiness: ${form.business}\nEmail: ${form.email}\nPhone: ${form.phone}\n\nMessage:\n${form.message}`
-    );
-
-    window.location.href = `mailto:info@xcelrank.com?subject=${subject}&body=${body}`;
-  };
-
+export default function HomePage() {
   return (
-    <main
-      style={{
-        fontFamily: "Arial, sans-serif",
-        backgroundColor: "#070707",
-        color: "#ffffff",
-        minHeight: "100vh",
-      }}
-    >
-      <header
-        style={{
-          position: "sticky",
-          top: 0,
-          zIndex: 50,
-          backgroundColor: "rgba(7,7,7,0.92)",
-          backdropFilter: "blur(10px)",
-          borderBottom: "1px solid rgba(255,255,255,0.08)",
-        }}
-      >
-        <div
-          style={{
-            maxWidth: "1200px",
-            margin: "0 auto",
-            padding: "18px 24px",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            flexWrap: "wrap",
-            gap: "16px",
-          }}
-        >
-          <div
-            style={{
-              fontSize: "28px",
-              fontWeight: 800,
-              color: "#d4af37",
-              letterSpacing: "0.5px",
-            }}
-          >
-            XcelRank
-          </div>
+    <main className="min-h-screen bg-[#050505] text-white">
+      {/* Header */}
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-black/80 backdrop-blur-xl">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col gap-4 py-4 lg:py-5">
+            <div className="flex items-center justify-between gap-4">
+              <a href="/" className="inline-flex items-center">
+                <div className="text-3xl font-extrabold tracking-tight text-[#d4af37] sm:text-4xl">
+                  XcelRank
+                </div>
+              </a>
 
-          <nav
-            style={{
-              display: "flex",
-              gap: "28px",
-              flexWrap: "wrap",
-              alignItems: "center",
-            }}
-          >
-            <a href="#services" style={navLinkStyle}>
-              Services
-            </a>
-            <a href="#process" style={navLinkStyle}>
-              Process
-            </a>
-            <a href="#why-us" style={navLinkStyle}>
-              Why Us
-            </a>
-            <a href="#audit" style={navLinkStyle}>
-              Free Audit
-            </a>
-            <a href="#contact" style={navLinkStyle}>
-              Contact
-            </a>
-            <a href="tel:07496004510" style={headerButtonStyle}>
-              Call Now
-            </a>
-          </nav>
+              <div className="hidden items-center gap-3 lg:flex">
+                <a
+                  href="#audit"
+                  className="rounded-full border border-white/10 px-5 py-3 text-sm font-semibold text-white transition hover:border-[#d4af37]/40 hover:text-[#d4af37]"
+                >
+                  Free Audit
+                </a>
+                <a
+                  href="tel:07496004510"
+                  className="rounded-full bg-[#d4af37] px-6 py-3 text-sm font-semibold text-black shadow-[0_10px_30px_rgba(212,175,55,0.25)] transition hover:scale-[1.02] hover:opacity-95"
+                >
+                  Call Now
+                </a>
+              </div>
+            </div>
+
+            {/* Mobile / Tablet nav */}
+            <div className="lg:hidden">
+              <nav className="grid grid-cols-2 gap-2 rounded-2xl border border-white/10 bg-white/[0.03] p-2 sm:grid-cols-3">
+                <a
+                  href="#services"
+                  className="rounded-xl px-3 py-3 text-center text-sm font-medium text-white/85 transition hover:bg-white/5 hover:text-[#d4af37]"
+                >
+                  Services
+                </a>
+                <a
+                  href="#process"
+                  className="rounded-xl px-3 py-3 text-center text-sm font-medium text-white/85 transition hover:bg-white/5 hover:text-[#d4af37]"
+                >
+                  Process
+                </a>
+                <a
+                  href="#why-us"
+                  className="rounded-xl px-3 py-3 text-center text-sm font-medium text-white/85 transition hover:bg-white/5 hover:text-[#d4af37]"
+                >
+                  Why Us
+                </a>
+                <a
+                  href="#audit"
+                  className="rounded-xl px-3 py-3 text-center text-sm font-medium text-white/85 transition hover:bg-white/5 hover:text-[#d4af37]"
+                >
+                  Free Audit
+                </a>
+                <a
+                  href="#contact"
+                  className="col-span-2 rounded-xl px-3 py-3 text-center text-sm font-medium text-white/85 transition hover:bg-white/5 hover:text-[#d4af37] sm:col-span-1"
+                >
+                  Contact
+                </a>
+              </nav>
+
+              <div className="mt-3 flex flex-col gap-3 sm:flex-row">
+                <a
+                  href="#audit"
+                  className="inline-flex flex-1 items-center justify-center rounded-full border border-white/10 px-4 py-3 text-sm font-semibold text-white transition hover:border-[#d4af37]/40 hover:text-[#d4af37]"
+                >
+                  Free Audit
+                </a>
+                <a
+                  href="tel:07496004510"
+                  className="inline-flex flex-1 items-center justify-center rounded-full bg-[#d4af37] px-4 py-3 text-sm font-semibold text-black shadow-[0_10px_30px_rgba(212,175,55,0.2)] transition hover:opacity-95"
+                >
+                  Call Now
+                </a>
+              </div>
+            </div>
+
+            {/* Desktop nav */}
+            <nav className="hidden items-center gap-8 text-sm font-medium text-white/75 lg:flex">
+              <a href="#services" className="transition hover:text-[#d4af37]">
+                Services
+              </a>
+              <a href="#process" className="transition hover:text-[#d4af37]">
+                Process
+              </a>
+              <a href="#why-us" className="transition hover:text-[#d4af37]">
+                Why Us
+              </a>
+              <a href="#audit" className="transition hover:text-[#d4af37]">
+                Free Audit
+              </a>
+              <a href="#contact" className="transition hover:text-[#d4af37]">
+                Contact
+              </a>
+            </nav>
+          </div>
         </div>
       </header>
 
-      <section
-        style={{
-          background:
-            "radial-gradient(circle at top right, rgba(212,175,55,0.12), transparent 34%), radial-gradient(circle at top left, rgba(255,255,255,0.04), transparent 24%)",
-        }}
-      >
-        <div
-          style={{
-            maxWidth: "1200px",
-            margin: "0 auto",
-            padding: "95px 24px 80px",
-            display: "grid",
-            gridTemplateColumns: "1.1fr 0.9fr",
-            gap: "42px",
-            alignItems: "center",
-          }}
-        >
-          <div>
-            <div
-              style={{
-                display: "inline-block",
-                backgroundColor: "rgba(212,175,55,0.12)",
-                border: "1px solid rgba(212,175,55,0.24)",
-                color: "#d4af37",
-                padding: "8px 14px",
-                borderRadius: "999px",
-                fontSize: "13px",
-                fontWeight: 700,
-                letterSpacing: "0.8px",
-                textTransform: "uppercase",
-                marginBottom: "20px",
-              }}
-            >
-              Local SEO • Google Growth • Lead Generation
+      {/* Hero */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(212,175,55,0.18),transparent_30%),radial-gradient(circle_at_top_left,rgba(255,255,255,0.06),transparent_25%),radial-gradient(circle_at_bottom_left,rgba(212,175,55,0.12),transparent_30%)]" />
+        <div className="absolute inset-0 opacity-[0.03] [background-image:linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] [background-size:48px_48px]" />
+
+        <div className="relative mx-auto max-w-7xl px-4 pb-16 pt-14 sm:px-6 sm:pb-20 sm:pt-16 lg:px-8 lg:pb-24 lg:pt-24">
+          <div className="grid items-center gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-14">
+            <div>
+              <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-[#d4af37]/25 bg-[#d4af37]/10 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#d4af37] sm:text-xs">
+                <span className="h-2 w-2 rounded-full bg-[#d4af37]" />
+                <span className="truncate">Local SEO • Google Growth • Lead Generation</span>
+              </div>
+
+              <h1 className="mt-6 max-w-4xl text-4xl font-extrabold leading-[1.02] tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl">
+                Get More Calls, More Leads, and More Customers From Google
+              </h1>
+
+              <p className="mt-5 max-w-2xl text-base leading-7 text-white/70 sm:text-lg sm:leading-8">
+                XcelRank helps local businesses improve Google visibility, optimise
+                their Google Business Profile, and turn searches into real enquiries
+                with a clean, practical growth strategy.
+              </p>
+
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4">
+                <a
+                  href="#audit"
+                  className="inline-flex min-h-[52px] items-center justify-center rounded-full bg-[#d4af37] px-7 py-4 text-base font-semibold text-black shadow-[0_16px_40px_rgba(212,175,55,0.25)] transition hover:scale-[1.01] hover:opacity-95"
+                >
+                  Get Free Audit
+                </a>
+                <a
+                  href="tel:07496004510"
+                  className="inline-flex min-h-[52px] items-center justify-center rounded-full border border-white/10 bg-white/[0.03] px-7 py-4 text-base font-semibold text-white transition hover:border-[#d4af37]/40 hover:text-[#d4af37]"
+                >
+                  Call 07496004510
+                </a>
+              </div>
+
+              <div className="mt-8 grid gap-4 sm:grid-cols-3">
+                <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-sm">
+                  <div className="text-sm font-semibold text-[#d4af37]">Based in</div>
+                  <div className="mt-2 text-base font-semibold sm:text-lg">
+                    Slough, United Kingdom
+                  </div>
+                </div>
+                <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-sm">
+                  <div className="text-sm font-semibold text-[#d4af37]">Focused on</div>
+                  <div className="mt-2 text-base font-semibold sm:text-lg">
+                    Local business growth
+                  </div>
+                </div>
+                <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-sm">
+                  <div className="text-sm font-semibold text-[#d4af37]">Goal</div>
+                  <div className="mt-2 text-base font-semibold sm:text-lg">
+                    More enquiries, not just traffic
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <h1
-              style={{
-                fontSize: "clamp(40px, 5vw, 64px)",
-                lineHeight: 1.05,
-                margin: "0 0 18px",
-                fontWeight: 800,
-                maxWidth: "580px",
-              }}
-            >
-              Get More Calls, More Customers, and Real Growth from Google
-            </h1>
+            <div className="relative">
+              <div className="absolute -inset-4 rounded-[2rem] bg-[#d4af37]/10 blur-3xl sm:-inset-6" />
+              <div className="relative rounded-[2rem] border border-white/10 bg-gradient-to-b from-white/[0.08] to-white/[0.03] p-5 shadow-[0_20px_60px_rgba(0,0,0,0.45)] backdrop-blur-xl sm:p-6 lg:p-8">
+                <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <div className="text-sm font-semibold uppercase tracking-[0.22em] text-[#d4af37]">
+                      Growth Snapshot
+                    </div>
+                    <div className="mt-2 text-xl font-bold sm:text-2xl">
+                      Your Local Presence Matters
+                    </div>
+                  </div>
+                  <div className="w-fit rounded-2xl border border-[#d4af37]/25 bg-[#d4af37]/10 px-3 py-2 text-sm font-semibold text-[#d4af37]">
+                    Premium
+                  </div>
+                </div>
 
-            <p
-              style={{
-                fontSize: "19px",
-                lineHeight: 1.8,
-                color: "#d8d8d8",
-                maxWidth: "620px",
-                marginBottom: "30px",
-              }}
-            >
-              If your business isn’t showing up properly on Google, you’re losing
-              customers every day.
-              <br />
-              <br />
-              XcelRank helps you improve your visibility, attract more local
-              enquiries, and turn searches into real business — without
-              overcomplicated strategies or wasted effort.
-            </p>
+                <div className="space-y-4">
+                  <div className="rounded-3xl border border-white/10 bg-black/30 p-5">
+                    <div className="flex items-center justify-between gap-4">
+                      <span className="text-sm text-white/60">Google Visibility</span>
+                      <span className="text-sm font-semibold text-[#d4af37]">Optimised</span>
+                    </div>
+                    <div className="mt-4 h-2 rounded-full bg-white/10">
+                      <div className="h-2 w-[78%] rounded-full bg-[#d4af37]" />
+                    </div>
+                  </div>
 
-            <div
-              style={{
-                display: "flex",
-                gap: "14px",
-                flexWrap: "wrap",
-                marginBottom: "20px",
-              }}
-            >
-              <a href="tel:07496004510" style={primaryButtonStyle}>
-                Call Now
-              </a>
-              <a
-                href="https://wa.me/447496004510"
-                target="_blank"
-                rel="noreferrer"
-                style={secondaryButtonStyle}
-              >
-                WhatsApp
-              </a>
-            </div>
+                  <div className="rounded-3xl border border-white/10 bg-black/30 p-5">
+                    <div className="flex items-center justify-between gap-4">
+                      <span className="text-sm text-white/60">Lead Conversion Focus</span>
+                      <span className="text-sm font-semibold text-[#d4af37]">High Priority</span>
+                    </div>
+                    <div className="mt-4 h-2 rounded-full bg-white/10">
+                      <div className="h-2 w-[86%] rounded-full bg-[#d4af37]" />
+                    </div>
+                  </div>
 
-            <p
-              style={{
-                color: "#d4af37",
-                fontSize: "15px",
-                lineHeight: 1.7,
-                marginBottom: "24px",
-                maxWidth: "620px",
-              }}
-            >
-              Most local businesses lose customers daily simply because they are
-              not visible enough online.
-            </p>
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <div className="rounded-3xl border border-white/10 bg-black/30 p-5">
+                      <div className="text-sm text-white/60">Strategy</div>
+                      <div className="mt-2 text-lg font-bold sm:text-xl">Local SEO</div>
+                    </div>
+                    <div className="rounded-3xl border border-white/10 bg-black/30 p-5">
+                      <div className="text-sm text-white/60">Outcome</div>
+                      <div className="mt-2 text-lg font-bold sm:text-xl">More Enquiries</div>
+                    </div>
+                  </div>
 
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
-                gap: "10px",
-                maxWidth: "560px",
-                color: "#cfcfcf",
-                fontSize: "15px",
-              }}
-            >
-              <span>✔ More visibility</span>
-              <span>✔ More local enquiries</span>
-              <span>✔ More customers choosing your business</span>
-            </div>
-          </div>
-
-          <div style={{ marginTop: "40px" }}>
-            <div
-              style={{
-                background:
-                  "linear-gradient(145deg, rgba(255,255,255,0.04), rgba(212,175,55,0.06))",
-                border: "1px solid rgba(212,175,55,0.16)",
-                borderRadius: "30px",
-                padding: "28px",
-                boxShadow: "0 24px 70px rgba(0,0,0,0.45)",
-              }}
-            >
-              <div style={{ display: "grid", gap: "18px" }}>
-                {[
-                  {
-                    title: "Stronger Google Presence",
-                    text: "Build a profile that looks more trusted, more complete, and more visible to nearby customers.",
-                  },
-                  {
-                    title: "Higher Local Visibility",
-                    text: "Show up where people are already searching for your services and stand out from local competitors.",
-                  },
-                  {
-                    title: "Better Lead Conversion",
-                    text: "Turn traffic into real calls and enquiries with clearer messaging and a stronger customer journey.",
-                  },
-                ].map((item) => (
-                  <div
-                    key={item.title}
-                    style={{
-                      backgroundColor: "rgba(255,255,255,0.04)",
-                      border: "1px solid rgba(255,255,255,0.08)",
-                      borderRadius: "18px",
-                      padding: "20px",
-                    }}
-                  >
-                    <h3
-                      style={{
-                        margin: "0 0 8px",
-                        fontSize: "20px",
-                        color: "#ffffff",
-                      }}
-                    >
-                      {item.title}
-                    </h3>
-                    <p
-                      style={{
-                        margin: 0,
-                        color: "#d1d1d1",
-                        lineHeight: 1.7,
-                      }}
-                    >
-                      {item.text}
+                  <div className="rounded-3xl border border-white/10 bg-[#d4af37]/10 p-5">
+                    <div className="text-sm font-semibold uppercase tracking-[0.2em] text-[#d4af37]">
+                      XcelRank Promise
+                    </div>
+                    <p className="mt-3 text-sm leading-7 text-white/80">
+                      Clean execution, stronger Google positioning, and a website
+                      experience that feels premium from the first impression.
                     </p>
                   </div>
-                ))}
+                </div>
               </div>
+            </div>
+          </div>
+
+          <div className="mt-10 grid gap-4 rounded-[2rem] border border-white/10 bg-white/[0.03] p-5 sm:grid-cols-3 sm:p-6">
+            <div>
+              <div className="text-2xl font-bold text-[#d4af37]">Premium</div>
+              <div className="mt-1 text-sm text-white/60">Brand presentation</div>
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-[#d4af37]">Focused</div>
+              <div className="mt-1 text-sm text-white/60">On calls and leads</div>
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-[#d4af37]">Simple</div>
+              <div className="mt-1 text-sm text-white/60">No fluff, clear actions</div>
             </div>
           </div>
         </div>
       </section>
 
-      <section
-        style={{
-          maxWidth: "1200px",
-          margin: "0 auto",
-          padding: "0 24px 90px",
-        }}
-      >
-        <div
-          style={{
-            backgroundColor: "#101010",
-            border: "1px solid rgba(212,175,55,0.14)",
-            borderRadius: "28px",
-            padding: "36px 28px",
-          }}
-        >
-          <div style={{ textAlign: "center", marginBottom: "28px" }}>
-            <p style={sectionLabelStyle}>The Problem</p>
-            <h2 style={{ ...sectionTitleStyle, margin: "0 0 10px" }}>
-              Most Local Businesses Are Invisible on Google
-            </h2>
-            <p style={sectionTextStyle}>
-              If people can’t find your business, they can’t choose your
-              business. That means lost calls, lost enquiries, and lost
-              customers.
-            </p>
-          </div>
-
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-              gap: "18px",
-            }}
-          >
-            {[
-              "Competitors appearing above you",
-              "An under-optimised Google presence",
-              "Missed daily enquiries",
-              "Weak online trust",
-            ].map((item) => (
-              <div
-                key={item}
-                style={{
-                  backgroundColor: "#080808",
-                  border: "1px solid rgba(255,255,255,0.07)",
-                  borderRadius: "18px",
-                  padding: "20px",
-                  color: "#d8d8d8",
-                  lineHeight: 1.7,
-                }}
-              >
-                {item}
-              </div>
-            ))}
-          </div>
-
-          <p
-            style={{
-              color: "#d4af37",
-              textAlign: "center",
-              marginTop: "24px",
-              fontSize: "16px",
-              lineHeight: 1.7,
-              maxWidth: "760px",
-              marginInline: "auto",
-            }}
-          >
-            Every day this continues, your competitors take the customers that
-            should be yours.
-          </p>
-        </div>
-      </section>
-
-      <section
-        id="services"
-        style={{
-          maxWidth: "1200px",
-          margin: "0 auto",
-          padding: "0 24px 100px",
-        }}
-      >
-        <div style={{ textAlign: "center", marginBottom: "42px" }}>
-          <p style={sectionLabelStyle}>How We Help You Grow</p>
-          <h2 style={{ ...sectionTitleStyle, margin: "0 0 10px" }}>
-            Focused Systems Designed to Get You Seen and Chosen
-          </h2>
-          <p style={sectionTextStyle}>
-            We don’t offer random services. We focus on the key areas that
-            directly impact your visibility, trust, and ability to generate real
-            enquiries.
-          </p>
-        </div>
-
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-            gap: "24px",
-          }}
-        >
-          {[
-            {
-              icon: "📍",
-              title: "Google Growth System",
-              text: "Make your business impossible to ignore on Google. We strengthen your presence so your business appears more credible, ranks more effectively, and attracts more calls from real local customers.",
-            },
-            {
-              icon: "📈",
-              title: "Local Visibility Boost",
-              text: "Get found by customers actively searching in your area. We position your business where it matters most, helping you appear more often and compete more effectively in local search.",
-            },
-            {
-              icon: "🤝",
-              title: "Lead Conversion Setup",
-              text: "Turn visitors into real enquiries. We improve your messaging and structure so more people take action — calling, messaging, and choosing your business.",
-            },
-          ].map((service) => (
-            <div
-              key={service.title}
-              style={{
-                background:
-                  "linear-gradient(180deg, rgba(18,18,18,1), rgba(10,10,10,1))",
-                border: "1px solid rgba(212,175,55,0.16)",
-                borderRadius: "24px",
-                padding: "30px",
-                boxShadow: "0 16px 40px rgba(0,0,0,0.28)",
-                height: "100%",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-              }}
-            >
-              <div>
-                <div
-                  style={{
-                    width: "62px",
-                    height: "62px",
-                    borderRadius: "18px",
-                    backgroundColor: "rgba(212,175,55,0.1)",
-                    border: "1px solid rgba(212,175,55,0.18)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: "30px",
-                    marginBottom: "18px",
-                  }}
-                >
-                  {service.icon}
-                </div>
-
-                <h3 style={{ fontSize: "24px", margin: "0 0 14px" }}>
-                  {service.title}
-                </h3>
-
-                <p style={{ color: "#d0d0d0", lineHeight: 1.8, margin: 0 }}>
-                  {service.text}
-                </p>
-              </div>
+      {/* Services */}
+      <section id="services" className="border-t border-white/10 bg-[#070707]">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+          <div className="max-w-2xl">
+            <div className="text-sm font-semibold uppercase tracking-[0.25em] text-[#d4af37]">
+              Services
             </div>
-          ))}
-        </div>
-      </section>
-
-      <section
-        id="process"
-        style={{
-          backgroundColor: "#0f0f0f",
-          borderTop: "1px solid rgba(255,255,255,0.06)",
-          borderBottom: "1px solid rgba(255,255,255,0.06)",
-          padding: "95px 24px",
-        }}
-      >
-        <div
-          style={{
-            maxWidth: "1200px",
-            margin: "0 auto",
-          }}
-        >
-          <div style={{ textAlign: "center", marginBottom: "40px" }}>
-            <p style={sectionLabelStyle}>How It Works</p>
-            <h2 style={{ ...sectionTitleStyle, margin: "0 0 10px" }}>
-              A Clear Process Focused on Results
+            <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+              Practical growth services for local businesses
             </h2>
-            <p style={sectionTextStyle}>
-              We keep things simple. Identify the gaps, strengthen your
-              presence, and turn visibility into real enquiries.
+            <p className="mt-4 text-white/70">
+              Clear, focused services designed to improve visibility, generate
+              leads, and help your business win more local customers.
             </p>
           </div>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-              gap: "24px",
-            }}
-          >
-            {[
-              {
-                number: "01",
-                title: "Review Your Presence",
-                text: "We analyse how your business currently appears online and identify where you are losing potential customers.",
-              },
-              {
-                number: "02",
-                title: "Strengthen Visibility",
-                text: "We improve your positioning, optimise key areas, and make your business more competitive locally.",
-              },
-              {
-                number: "03",
-                title: "Generate More Enquiries",
-                text: "We refine your messaging and conversion paths to turn visibility into calls, messages, and real leads.",
-              },
-            ].map((step) => (
-              <div
-                key={step.number}
-                style={{
-                  backgroundColor: "#080808",
-                  border: "1px solid rgba(212,175,55,0.18)",
-                  borderRadius: "22px",
-                  padding: "28px",
-                }}
-              >
-                <div
-                  style={{
-                    color: "#d4af37",
-                    fontWeight: 800,
-                    fontSize: "14px",
-                    letterSpacing: "1px",
-                    marginBottom: "12px",
-                  }}
-                >
-                  {step.number}
-                </div>
-                <h3 style={{ margin: "0 0 12px", fontSize: "22px" }}>
-                  {step.title}
-                </h3>
-                <p style={{ color: "#d0d0d0", lineHeight: 1.75, marginBottom: 0 }}>
-                  {step.text}
-                </p>
+          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            <div className="group rounded-[2rem] border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.03] p-6 transition hover:-translate-y-1 hover:border-[#d4af37]/25 lg:p-7">
+              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl border border-[#d4af37]/25 bg-[#d4af37]/10 text-2xl shadow-[0_0_30px_rgba(212,175,55,0.12)]">
+                📍
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section
-        id="why-us"
-        style={{
-          maxWidth: "1200px",
-          margin: "0 auto",
-          padding: "95px 24px",
-        }}
-      >
-        <div style={{ textAlign: "center", marginBottom: "40px" }}>
-          <p style={sectionLabelStyle}>Why Choose Us</p>
-          <h2 style={{ ...sectionTitleStyle, margin: "0 0 10px" }}>
-            Built Around What Actually Matters
-          </h2>
-        </div>
-
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-            gap: "24px",
-          }}
-        >
-          {[
-            {
-              title: "Results Driven",
-              text: "Everything we do is focused on one outcome — helping your business generate more visibility and more valuable enquiries.",
-            },
-            {
-              title: "Strong Positioning",
-              text: "We present your business in a way that builds trust quickly and makes you stand out from weaker competitors.",
-            },
-            {
-              title: "Clear & Practical",
-              text: "No unnecessary complexity. Just focused improvements that support real business growth.",
-            },
-          ].map((item) => (
-            <div
-              key={item.title}
-              style={{
-                backgroundColor: "#111111",
-                border: "1px solid rgba(255,255,255,0.08)",
-                borderRadius: "22px",
-                padding: "28px",
-              }}
-            >
-              <h3 style={{ marginTop: 0, fontSize: "22px" }}>{item.title}</h3>
-              <p style={{ color: "#d0d0d0", lineHeight: 1.75, marginBottom: 0 }}>
-                {item.text}
+              <h3 className="text-xl font-semibold">Google Business Optimisation</h3>
+              <p className="mt-4 leading-7 text-white/70">
+                Improve your Google Business Profile to appear stronger, more
+                trusted, and more visible in local search results.
               </p>
             </div>
-          ))}
+
+            <div className="group rounded-[2rem] border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.03] p-6 transition hover:-translate-y-1 hover:border-[#d4af37]/25 lg:p-7">
+              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl border border-[#d4af37]/25 bg-[#d4af37]/10 text-2xl shadow-[0_0_30px_rgba(212,175,55,0.12)]">
+                📈
+              </div>
+              <h3 className="text-xl font-semibold">Local SEO</h3>
+              <p className="mt-4 leading-7 text-white/70">
+                Rank higher in your target areas and attract nearby customers who
+                are already searching for your services.
+              </p>
+            </div>
+
+            <div className="group rounded-[2rem] border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.03] p-6 transition hover:-translate-y-1 hover:border-[#d4af37]/25 md:col-span-2 xl:col-span-1 lg:p-7">
+              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl border border-[#d4af37]/25 bg-[#d4af37]/10 text-2xl shadow-[0_0_30px_rgba(212,175,55,0.12)]">
+                🎯
+              </div>
+              <h3 className="text-xl font-semibold">Lead Generation</h3>
+              <p className="mt-4 leading-7 text-white/70">
+                Turn traffic into enquiries with clear messaging, stronger offers,
+                and conversion-focused improvements.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section
-        id="audit"
-        style={{
-          maxWidth: "1200px",
-          margin: "0 auto",
-          padding: "0 24px 100px",
-        }}
-      >
-        <div
-          style={{
-            background:
-              "linear-gradient(145deg, rgba(212,175,55,0.14), rgba(255,255,255,0.03))",
-            border: "1px solid rgba(212,175,55,0.2)",
-            borderRadius: "30px",
-            padding: "42px 30px",
-          }}
-        >
-          <div style={{ textAlign: "center", marginBottom: "34px" }}>
-            <p style={sectionLabelStyle}>Free Audit</p>
-            <h2 style={{ ...sectionTitleStyle, margin: "0 0 10px" }}>
-              Request Your Free Google Audit
+      {/* Process */}
+      <section id="process" className="border-t border-white/10">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+          <div className="max-w-2xl">
+            <div className="text-sm font-semibold uppercase tracking-[0.25em] text-[#d4af37]">
+              Process
+            </div>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+              A simple process built for real results
             </h2>
-            <p style={sectionTextStyle}>
-              Send your details and we’ll review your current presence, identify
-              visible gaps, and highlight where your business may be losing
-              local customers.
-            </p>
           </div>
 
-          <form
-            onSubmit={handleSubmit}
-            style={{
-              maxWidth: "820px",
-              margin: "0 auto",
-              display: "grid",
-              gap: "18px",
-              padding: "10px",
-            }}
-          >
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-                gap: "18px",
-              }}
-            >
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                value={form.name}
-                onChange={handleChange}
-                required
-                style={inputStyle}
-              />
-              <input
-                type="text"
-                name="business"
-                placeholder="Business Name"
-                value={form.business}
-                onChange={handleChange}
-                required
-                style={inputStyle}
-              />
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            <div className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 lg:p-7">
+              <div className="inline-flex rounded-full border border-[#d4af37]/20 bg-[#d4af37]/10 px-3 py-1 text-xs font-bold tracking-[0.2em] text-[#d4af37]">
+                STEP 01
+              </div>
+              <h3 className="mt-5 text-xl font-semibold">Audit</h3>
+              <p className="mt-4 leading-7 text-white/70">
+                We review your online presence, Google profile, website, and local
+                search opportunities.
+              </p>
             </div>
 
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-                gap: "18px",
-              }}
-            >
-              <input
-                type="email"
-                name="email"
-                placeholder="Email Address"
-                value={form.email}
-                onChange={handleChange}
-                required
-                style={inputStyle}
-              />
-              <input
-                type="text"
-                name="phone"
-                placeholder="Phone Number"
-                value={form.phone}
-                onChange={handleChange}
-                required
-                style={inputStyle}
-              />
+            <div className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 lg:p-7">
+              <div className="inline-flex rounded-full border border-[#d4af37]/20 bg-[#d4af37]/10 px-3 py-1 text-xs font-bold tracking-[0.2em] text-[#d4af37]">
+                STEP 02
+              </div>
+              <h3 className="mt-5 text-xl font-semibold">Optimise</h3>
+              <p className="mt-4 leading-7 text-white/70">
+                We improve key areas that affect rankings, trust, and conversion.
+              </p>
             </div>
 
-            <textarea
-              name="message"
-              placeholder="Tell us a little about your business or what you want help with"
-              value={form.message}
-              onChange={handleChange}
-              rows={6}
-              required
-              style={textareaStyle}
-            />
-
-            <div style={{ textAlign: "center" }}>
-              <button type="submit" style={submitButtonStyle}>
-                Get Free Google Audit
-              </button>
+            <div className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 lg:p-7">
+              <div className="inline-flex rounded-full border border-[#d4af37]/20 bg-[#d4af37]/10 px-3 py-1 text-xs font-bold tracking-[0.2em] text-[#d4af37]">
+                STEP 03
+              </div>
+              <h3 className="mt-5 text-xl font-semibold">Grow</h3>
+              <p className="mt-4 leading-7 text-white/70">
+                You get better visibility, stronger local presence, and more
+                customer enquiries.
+              </p>
             </div>
-          </form>
-        </div>
-      </section>
-
-      <section
-        id="contact"
-        style={{
-          maxWidth: "1200px",
-          margin: "0 auto",
-          padding: "0 24px 100px",
-        }}
-      >
-        <div
-          style={{
-            background:
-              "linear-gradient(145deg, rgba(212,175,55,0.14), rgba(255,255,255,0.03))",
-            border: "1px solid rgba(212,175,55,0.2)",
-            borderRadius: "30px",
-            padding: "42px 30px",
-            textAlign: "center",
-          }}
-        >
-          <p style={sectionLabelStyle}>Contact Us</p>
-          <h2 style={{ ...sectionTitleStyle, margin: "0 0 10px" }}>
-            Ready to Get More Customers from Google?
-          </h2>
-          <p style={sectionTextStyle}>
-            Let’s talk about how XcelRank can help your business get seen, get
-            more calls, and win more customers in your local area.
-          </p>
-
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              gap: "18px",
-              flexWrap: "wrap",
-              marginTop: "24px",
-              marginBottom: "28px",
-              color: "#ffffff",
-              fontSize: "17px",
-            }}
-          >
-            <a href="tel:07496004510" style={contactLinkStyle}>
-              📞 07496 004510
-            </a>
-            <a href="mailto:info@xcelrank.com" style={contactLinkStyle}>
-              📧 info@xcelrank.com
-            </a>
-            <span>📍 Slough, United Kingdom</span>
-          </div>
-
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              gap: "14px",
-              flexWrap: "wrap",
-            }}
-          >
-            <a
-              href="https://wa.me/447496004510"
-              target="_blank"
-              rel="noreferrer"
-              style={primaryButtonStyle}
-            >
-              Message on WhatsApp
-            </a>
-            <a href="tel:07496004510" style={secondaryButtonStyle}>
-              Call XcelRank
-            </a>
           </div>
         </div>
       </section>
 
+      {/* Why Us */}
+      <section id="why-us" className="border-t border-white/10 bg-[#070707]">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
+            <div>
+              <div className="text-sm font-semibold uppercase tracking-[0.25em] text-[#d4af37]">
+                Why XcelRank
+              </div>
+              <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+                Built around local business growth
+              </h2>
+              <p className="mt-4 max-w-xl leading-8 text-white/70">
+                We keep things simple, premium, and focused on what matters most:
+                getting your business seen and turning that visibility into real
+                enquiries.
+              </p>
+            </div>
+
+            <div className="grid gap-5 sm:grid-cols-2">
+              <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6">
+                <h3 className="text-lg font-semibold">Results Driven</h3>
+                <p className="mt-3 leading-7 text-white/70">
+                  We focus on calls, leads, and real business growth.
+                </p>
+              </div>
+
+              <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6">
+                <h3 className="text-lg font-semibold">Local Focus</h3>
+                <p className="mt-3 leading-7 text-white/70">
+                  Strategies designed specifically for local service businesses.
+                </p>
+              </div>
+
+              <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6">
+                <h3 className="text-lg font-semibold">Simple & Clear</h3>
+                <p className="mt-3 leading-7 text-white/70">
+                  No fluff, no confusion, just practical improvements that matter.
+                </p>
+              </div>
+
+              <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6">
+                <h3 className="text-lg font-semibold">Premium Approach</h3>
+                <p className="mt-3 leading-7 text-white/70">
+                  Strong branding, smart positioning, and conversion-focused thinking.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Audit */}
+      <section id="audit" className="border-t border-white/10">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+          <div className="grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:gap-12">
+            <div>
+              <div className="text-sm font-semibold uppercase tracking-[0.25em] text-[#d4af37]">
+                Free Audit
+              </div>
+              <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+                Request your free Google visibility audit
+              </h2>
+              <p className="mt-4 max-w-xl leading-8 text-white/70">
+                Tell us a bit about your business and we’ll review your current
+                local presence and growth opportunities.
+              </p>
+
+              <div className="mt-8 space-y-4">
+                <div className="rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-4 text-white/80">
+                  • Quick and simple enquiry form
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-4 text-white/80">
+                  • Ideal for local businesses wanting more leads
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-4 text-white/80">
+                  • We will review and get back to you
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-[2rem] border border-white/10 bg-gradient-to-b from-white/[0.08] to-white/[0.03] p-5 shadow-[0_20px_60px_rgba(0,0,0,0.35)] backdrop-blur-xl sm:p-6 lg:p-8">
+              <div className="mb-6 flex items-center justify-between">
+                <div>
+                  <div className="text-sm font-semibold uppercase tracking-[0.2em] text-[#d4af37]">
+                    Start Here
+                  </div>
+                  <div className="mt-2 text-xl font-bold sm:text-2xl">
+                    Get Your Free Audit
+                  </div>
+                </div>
+              </div>
+
+              <form className="space-y-5">
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="mb-2 block text-sm font-medium text-white/80"
+                    >
+                      Full Name
+                    </label>
+                    <input
+                      id="name"
+                      type="text"
+                      placeholder="Your full name"
+                      className="w-full rounded-2xl border border-white/10 bg-black/40 px-4 py-3.5 text-white outline-none transition placeholder:text-white/30 focus:border-[#d4af37] focus:bg-black/50"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="business"
+                      className="mb-2 block text-sm font-medium text-white/80"
+                    >
+                      Business Name
+                    </label>
+                    <input
+                      id="business"
+                      type="text"
+                      placeholder="Your business name"
+                      className="w-full rounded-2xl border border-white/10 bg-black/40 px-4 py-3.5 text-white outline-none transition placeholder:text-white/30 focus:border-[#d4af37] focus:bg-black/50"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="mb-2 block text-sm font-medium text-white/80"
+                    >
+                      Email Address
+                    </label>
+                    <input
+                      id="email"
+                      type="email"
+                      placeholder="you@example.com"
+                      className="w-full rounded-2xl border border-white/10 bg-black/40 px-4 py-3.5 text-white outline-none transition placeholder:text-white/30 focus:border-[#d4af37] focus:bg-black/50"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="phone"
+                      className="mb-2 block text-sm font-medium text-white/80"
+                    >
+                      Phone Number
+                    </label>
+                    <input
+                      id="phone"
+                      type="tel"
+                      placeholder="Your phone number"
+                      className="w-full rounded-2xl border border-white/10 bg-black/40 px-4 py-3.5 text-white outline-none transition placeholder:text-white/30 focus:border-[#d4af37] focus:bg-black/50"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="message"
+                    className="mb-2 block text-sm font-medium text-white/80"
+                  >
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    rows={6}
+                    placeholder="Tell us about your business and what you need help with"
+                    className="w-full rounded-2xl border border-white/10 bg-black/40 px-4 py-3.5 text-white outline-none transition placeholder:text-white/30 focus:border-[#d4af37] focus:bg-black/50"
+                  />
+                </div>
+
+                <div className="rounded-2xl border border-[#d4af37]/20 bg-[#d4af37]/10 px-4 py-3 text-sm text-white/80">
+                  We’ll review your current visibility and highlight practical growth opportunities.
+                </div>
+
+                <button
+                  type="submit"
+                  className="inline-flex min-h-[54px] w-full items-center justify-center rounded-full bg-[#d4af37] px-6 py-4 text-base font-semibold text-black shadow-[0_16px_40px_rgba(212,175,55,0.25)] transition hover:opacity-95"
+                >
+                  Request Free Audit
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section id="contact" className="border-t border-white/10 bg-[#070707]">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+          <div className="rounded-[2rem] border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.03] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.35)] sm:p-8 lg:p-10">
+            <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
+              <div>
+                <div className="text-sm font-semibold uppercase tracking-[0.25em] text-[#d4af37]">
+                  Contact
+                </div>
+                <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+                  Ready to grow your business?
+                </h2>
+                <p className="mt-4 max-w-xl leading-8 text-white/70">
+                  Speak to XcelRank about improving your local visibility and
+                  generating more enquiries from Google.
+                </p>
+              </div>
+
+              <div className="space-y-5 text-white/80">
+                <div className="rounded-2xl border border-white/10 bg-black/25 p-5">
+                  <span className="font-semibold text-[#d4af37]">Phone:</span>{" "}
+                  <a
+                    href="tel:07496004510"
+                    className="break-all transition hover:text-[#d4af37] sm:break-normal"
+                  >
+                    07496004510
+                  </a>
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-black/25 p-5">
+                  <span className="font-semibold text-[#d4af37]">Email:</span>{" "}
+                  <a
+                    href="mailto:info@xcelrank.com"
+                    className="break-all transition hover:text-[#d4af37] sm:break-normal"
+                  >
+                    info@xcelrank.com
+                  </a>
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-black/25 p-5">
+                  <span className="font-semibold text-[#d4af37]">Location:</span> Slough,
+                  United Kingdom
+                </div>
+
+                <div className="flex flex-col gap-4 pt-2 sm:flex-row">
+                  <a
+                    href="tel:07496004510"
+                    className="inline-flex min-h-[52px] items-center justify-center rounded-full bg-[#d4af37] px-6 py-3.5 font-semibold text-black shadow-[0_16px_40px_rgba(212,175,55,0.22)] transition hover:opacity-95"
+                  >
+                    Call Now
+                  </a>
+                  <a
+                    href="mailto:info@xcelrank.com"
+                    className="inline-flex min-h-[52px] items-center justify-center rounded-full border border-white/10 px-6 py-3.5 font-semibold text-white transition hover:border-[#d4af37]/40 hover:text-[#d4af37]"
+                  >
+                    Email Us
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Floating button */}
       <a
-        href="https://wa.me/447496004510"
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Chat on WhatsApp"
-        style={{
-          position: "fixed",
-          right: "20px",
-          bottom: "20px",
-          width: "60px",
-          height: "60px",
-          borderRadius: "999px",
-          backgroundColor: "#d4af37",
-          color: "#080808",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          textDecoration: "none",
-          fontSize: "28px",
-          boxShadow: "0 14px 35px rgba(0,0,0,0.35)",
-          zIndex: 100,
-        }}
+        href="tel:07496004510"
+        className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#d4af37] text-xl text-black shadow-[0_18px_40px_rgba(212,175,55,0.35)] transition hover:scale-105 sm:bottom-6 sm:right-6 sm:h-16 sm:w-16 sm:text-2xl"
+        aria-label="Call XcelRank"
       >
-        💬
+        ☎
       </a>
 
-      <footer
-        style={{
-          borderTop: "1px solid rgba(255,255,255,0.07)",
-          padding: "26px 24px",
-          textAlign: "center",
-          color: "#bdbdbd",
-          fontSize: "14px",
-        }}
-      >
-        © 2026 XcelRank. All rights reserved.
+      {/* Footer */}
+      <footer className="border-t border-white/10 bg-black">
+        <div className="mx-auto max-w-7xl px-4 py-8 text-sm text-white/50 sm:px-6 lg:px-8">
+          © {new Date().getFullYear()} XcelRank. All rights reserved.
+        </div>
       </footer>
     </main>
   );
 }
-
-const navLinkStyle = {
-  color: "#ffffff",
-  textDecoration: "none",
-  fontSize: "15px",
-};
-
-const headerButtonStyle = {
-  backgroundColor: "#d4af37",
-  color: "#080808",
-  textDecoration: "none",
-  padding: "10px 18px",
-  borderRadius: "999px",
-  fontWeight: 700,
-  fontSize: "14px",
-};
-
-const primaryButtonStyle = {
-  backgroundColor: "#d4af37",
-  color: "#080808",
-  padding: "14px 24px",
-  borderRadius: "999px",
-  textDecoration: "none",
-  fontWeight: 700,
-  display: "inline-block",
-};
-
-const secondaryButtonStyle = {
-  border: "1px solid #d4af37",
-  color: "#d4af37",
-  padding: "14px 24px",
-  borderRadius: "999px",
-  textDecoration: "none",
-  fontWeight: 700,
-  display: "inline-block",
-};
-
-const sectionLabelStyle = {
-  color: "#d4af37",
-  fontWeight: 700,
-  textTransform: "uppercase" as const,
-  letterSpacing: "1px",
-  fontSize: "13px",
-  marginBottom: "10px",
-};
-
-const sectionTitleStyle = {
-  fontSize: "clamp(30px, 4vw, 42px)",
-  margin: "0 0 14px",
-};
-
-const sectionTextStyle = {
-  color: "#d0d0d0",
-  fontSize: "17px",
-  lineHeight: 1.75,
-  maxWidth: "600px",
-  margin: "0 auto",
-  textAlign: "center" as const,
-};
-
-const contactLinkStyle = {
-  color: "#ffffff",
-  textDecoration: "none",
-};
-
-const inputStyle = {
-  width: "100%",
-  padding: "16px 18px",
-  borderRadius: "16px",
-  border: "1px solid rgba(255,255,255,0.1)",
-  backgroundColor: "#0d0d0d",
-  color: "#ffffff",
-  fontSize: "16px",
-  outline: "none",
-  boxSizing: "border-box" as const,
-  marginBottom: "10px",
-};
-
-const textareaStyle = {
-  width: "100%",
-  padding: "16px 18px",
-  borderRadius: "16px",
-  border: "1px solid rgba(255,255,255,0.1)",
-  backgroundColor: "#0d0d0d",
-  color: "#ffffff",
-  fontSize: "16px",
-  outline: "none",
-  resize: "vertical" as const,
-  boxSizing: "border-box" as const,
-  minHeight: "140px",
-  marginBottom: "10px",
-};
-
-const submitButtonStyle = {
-  backgroundColor: "#d4af37",
-  color: "#080808",
-  padding: "14px 26px",
-  borderRadius: "999px",
-  border: "none",
-  fontWeight: 700,
-  fontSize: "16px",
-  cursor: "pointer",
-};
